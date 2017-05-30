@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-
-<!--
+/*
 
 raftworld : Plan Ingress fields based on walking paths between groups of portals.
 
@@ -32,28 +30,18 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
--->
+*/
 
-<html>
-    <head>
-        <script src="config.js"></script>
-        <script src="raftworld.js"></script>
-        <style>
-            #map
-            {
-                height  : 100%;
-            }
+function init()
+{
+    var js = document.createElement( "script" );
+    js.src = "https://maps.googleapis.com/maps/api/js?key=" + apiKey;
+    js.onload = mapApiLoaded;
+    document.body.appendChild( js );
+}
 
-            html, body
-            {
-                height  : 100%;
-                margin  : 0;
-                padding : 0;
-            }
-        </style>
-        <title>raftworld</title>
-   </head>
-   <body onload="init();">
-       <div id="map"></div>
-   </body>
-</html>
+function mapApiLoaded()
+{
+    var map = new google.maps.Map( document.getElementById( "map" ),
+                                   { center: { lat: 40, lng: -95 }, zoom: 5 } );
+}
