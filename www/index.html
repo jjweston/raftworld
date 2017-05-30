@@ -39,21 +39,51 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <script src="config.js"></script>
         <script src="raftworld.js"></script>
         <style>
-            #map
-            {
-                height  : 100%;
-            }
 
-            html, body
-            {
-                height  : 100%;
-                margin  : 0;
-                padding : 0;
-            }
+html, body
+{
+    height  : 100%;
+    margin  : 0;
+    padding : 0;
+}
+
+#map
+{
+    height : 100%;
+}
+
+#startAddPortal
+{
+    margin  : 10px;
+    padding : 0;
+}
+
+#addPortal
+{
+    background : #FFFFFF;
+    border     : 2px solid #000000;
+    margin     : 10px;
+    padding    : 5px;
+}
+
+#addPortalButton
+{
+    display      : block;
+    margin-left  : auto;
+    margin-right : auto;
+    margin-top   : 10px;
+}
+
         </style>
         <title>raftworld</title>
    </head>
    <body onload="init();">
        <div id="map"></div>
+       <div id="startAddPortal"><button id="startAddPortalButton">Add Portal</button></div>
+       <div id="addPortal">
+           <h2 style="text-align: center;">Add Portal</h2>
+           <input id="portalUrl"><br>
+           <button id="addPortalButton">Submit</button>
+       </div>
    </body>
 </html>

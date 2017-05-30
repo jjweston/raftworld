@@ -32,6 +32,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
 
+var map;
+
 function init()
 {
     var js = document.createElement( "script" );
@@ -42,6 +44,30 @@ function init()
 
 function mapApiLoaded()
 {
-    var map = new google.maps.Map( document.getElementById( "map" ),
-                                   { center: { lat: 40, lng: -95 }, zoom: 5 } );
+    map = new google.maps.Map( document.getElementById( "map" ),
+                               { center: { lat: 40, lng: -95 }, zoom: 5 } );
+
+    map.controls[ google.maps.ControlPosition.TOP_RIGHT ].push( document.getElementById( "startAddPortal" ));
+    map.controls[ google.maps.ControlPosition.RIGHT_TOP ].push( document.getElementById( "addPortal"      ));
+
+    document.getElementById( "addPortal" ).style.display = "none";
+
+    document.getElementById( "startAddPortalButton" ).addEventListener( "click", startAddPortal );
+    document.getElementById( "addPortalButton"      ).addEventListener( "click", addPortal      );
+}
+
+function startAddPortal()
+{
+    document.getElementById( "addPortal" ).style.display = "block";
+}
+
+function addPortal()
+{
+    var portalUrl = new URL( document.getElementById( "portalUrl" ).value );
+    var portalLocation = portalUrl.searchParams.get( "pll" ).split( "," );
+    var portalLatitude  = parseFloat( portalLocation[ 0 ] );
+    var portalLongitude = parseFloat( portalLocation[ 1 ] );
+    new google.maps.Marker( { position: { lat: portalLatitude, lng: portalLongitude }, map: map } );
+    document.getElementById( "portalUrl" ).value = "";
+    document.getElementById( "addPortal" ).style.display = "none";
 }
