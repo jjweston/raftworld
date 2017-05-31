@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-
-<!--
+/*
 
 raftworld : Plan Ingress fields based on walking paths between groups of portals.
 
@@ -32,22 +30,38 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
--->
+*/
 
-<html>
-    <head>
-        <script src="config.js"></script>
-        <script src="raftworld.js"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <title>raftworld</title>
-   </head>
-   <body onload="init();">
-       <div id="map"></div>
-       <div id="startAddPortal"><button id="startAddPortalButton">Add Portal</button></div>
-       <div id="addPortal">
-           <h2 style="text-align: center;">Add Portal</h2>
-           <input id="portalUrl"><br>
-           <button id="addPortalButton">Submit</button>
-       </div>
-   </body>
-</html>
+html, body
+{
+    height  : 100%;
+    margin  : 0;
+    padding : 0;
+}
+
+#map
+{
+    height : 100%;
+}
+
+#startAddPortal
+{
+    margin  : 10px;
+    padding : 0;
+}
+
+#addPortal
+{
+    background : #FFFFFF;
+    border     : 2px solid #000000;
+    margin     : 10px;
+    padding    : 5px;
+}
+
+#addPortalButton
+{
+    display      : block;
+    margin-left  : auto;
+    margin-right : auto;
+    margin-top   : 10px;
+}
