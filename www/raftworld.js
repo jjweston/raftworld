@@ -52,11 +52,23 @@ function mapApiLoaded()
 
     document.getElementById( "addPortal" ).style.display = "none";
 
-    document.getElementById( "startAddPortalButton" ).addEventListener( "click", startAddPortal );
-    document.getElementById( "addPortalButton"      ).addEventListener( "click", addPortal      );
+    document.getElementById( "startAddPortal"  ).addEventListener( "mouseover", startAddPortalMouseOver );
+    document.getElementById( "startAddPortal"  ).addEventListener( "mouseout",  startAddPortalMouseOut  );
+    document.getElementById( "startAddPortal"  ).addEventListener( "click",     startAddPortalClick     );
+    document.getElementById( "addPortalButton" ).addEventListener( "click",     addPortal               );
 }
 
-function startAddPortal()
+function startAddPortalMouseOver()
+{
+    document.getElementById( "startAddPortal" ).style.background = "#EBEBEB";
+}
+
+function startAddPortalMouseOut()
+{
+    document.getElementById( "startAddPortal" ).style.background = "#FFFFFF";
+}
+
+function startAddPortalClick()
 {
     document.getElementById( "addPortal" ).style.display = "block";
 }
